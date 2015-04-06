@@ -16,6 +16,6 @@ VIM Vundle plugin is required since this config file relies heavily on Vundle to
   git clone <this_repo>
   cp vimrc $HOME/.vimrc 
   ```
-3. Install the rest of the plugins through **_Vundle_**
+3. Install the rest of the plugins through **Vundle**
 
   Open **VIM** and execute ``:BundleInstall``

@@ -1,2 +1,3 @@
-# vim
-VIM Configuration
+# VIM Configuration
+My Personal VIM Configuration.
+

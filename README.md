@@ -2,8 +2,10 @@
 My Personal VIM Configuration.
 
 ### Installation
-_Make sure to backup your existing .vimrc file or .vim directory
+_Make sure to backup your existing .vimrc file or .vim directory_
 
-`git clone <this_repo>`
-`mv vimrc $HOME/.vimrc && mv vim $HOME/.vim`
+``` 
+git clone <this_repo>
+mv vimrc $HOME/.vimrc && mv vim $HOME/.vim
+```
 

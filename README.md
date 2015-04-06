@@ -18,4 +18,4 @@ VIM Vundle plugin is required since this config file relies heavily on Vundle to
   ```
 3. Install the rest of the plugins through **Vundle**
 
-  Open **VIM** and execute ``:BundleInstall``
+  Open **VIM** and run ``:BundleInstall``

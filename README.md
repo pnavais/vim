@@ -28,6 +28,6 @@ VIM Vundle plugin is required since this config file relies heavily on it to han
 - Launch CtrlP <Ctrl-P> to quickly find files
 - Solarized theme disabled by default (use `solarized_termcolors=16` for better results under terminal)
 - Edit .vimrc file with <leader>ev
-- Added Tabular plugin. Perform any selection (VISUAL recommended) and run : Tabularized /<pattern> to tabularize data using the given pattern.
+- Added Tabular plugin. Perform any selection (_VISUAL recommended_) and run : `Tabularized /<pattern>` to perform data tabulation using the given pattern.
 
 _NOTE: Airline and powerline fonts are enabled by default but powerline fonts shall be installed in the system separately._

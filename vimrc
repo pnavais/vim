@@ -51,6 +51,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'godlygeek/tabular'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'vim-scripts/matchit.zip'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -93,4 +94,3 @@ nmap <silent> <A-Right> :wincmd l<CR>
 
 " Hide higlighted matches after search
 :nnoremap <silent> <CR> :nohlsearch<CR><CR>
-

@@ -6,6 +6,6 @@ _NOTE: Make sure to backup your existing .vimrc file or .vim directory_
 
 ``` 
 git clone <this_repo>
-mv vimrc $HOME/.vimrc && mv vim $HOME/.vim
+cp vimrc $HOME/.vimrc && mv vim $HOME/.vim
 ```
 

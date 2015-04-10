@@ -22,10 +22,10 @@ VIM Vundle plugin is required since this config file relies heavily on it to han
   
 ### Quick features
 - Airline statusbar (Tabline disabled by default)
-- NERDTree access using the <Ctrl-R> shortcut
-- Navigate through tabs using <Ctrl-left> and <Ctrl-right>
-- Navigate through splits using <Alt-arrow keys>
-- Launch CtrlP <Ctrl-P> to quickly find files
+- NERDTree access using the \<Ctrl-R\> shortcut
+- Navigate through tabs using \<Ctrl-left\> and \<Ctrl-right\>
+- Navigate through splits using \<Alt-arrow keys\>
+- Launch CtrlP \<Ctrl-P\> to quickly find files
 - Solarized theme disabled by default (use `solarized_termcolors=16` for better results under terminal)
 - Edit .vimrc file with <leader>ev
 - Added Tabular plugin. Perform any selection (_VISUAL recommended_) and run : `Tabularize /<pattern>` to perform data tabulation using the given pattern.

@@ -47,12 +47,14 @@ Plugin 'gmarik/Vundle.vim'
 " Vundle Plugins
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'godlygeek/tabular'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-fugitive'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -68,7 +70,7 @@ set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=0
 
-" Unicode symbols                                            
+ " Unicode symbols                                            
 let g:airline_symbols          = {}                         
 let g:airline_left_sep         = "\u2b80"                   
 let g:airline_left_alt_sep     = "\u2b81"                   
@@ -77,6 +79,7 @@ let g:airline_right_alt_sep    = "\u2b83"
 let g:airline_symbols.branch   = "\u2b60"                   
 let g:airline_symbols.readonly = "\u2b64"                   
 let g:airline_symbols.linenr   = "\u2b61"
+
 
 " Themes
 """"""""

@@ -13,7 +13,7 @@ VIM Vundle plugin is required since this config file relies heavily on it to han
 2. Setup **.vimrc**:
 
   ```
-  git clone <this_repo> <some_dir> && cp <some_dir>/vimrc ~/.vimrc 
+  git clone https://github.com/pnavais/vim.git /some/dir && cp /some/dir/vimrc ~/.vimrc 
   ```
 3. Install the rest of the plugins through **Vundle**
 

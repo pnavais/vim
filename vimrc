@@ -14,7 +14,7 @@ set number                     " Show line numbers
 set linebreak                  " Break lines at word (requires Wrap lines)
 set showbreak=+++              " Wrap-broken line prefix
 set textwidth=100              " Line wrap (number of cols)
-set showmatch                  " Highlight matching brace
+
 set visualbell                 " Use visual bell (no beeping)
 set hlsearch                   " Highlight all search results
 set smartcase                  " Enable smart-case search
@@ -29,6 +29,7 @@ set backspace=indent,eol,start " Backspace behaviour
 set magic                      " Set magic on, for regex
 set mat=2                      " How many tenths of a second to blink
 "set cursorline                 " Draws an horizontal line at cursor position
+
 
 " Tab control
 set noexpandtab " tabs ftw
@@ -49,8 +50,6 @@ set foldlevel=1
 
 " make backspace behave in a sane manner
 set backspace=indent,eol,start
-
-set pastetoggle=<F2>
 
 " Switch syntax highlighting on
 syntax on
@@ -86,10 +85,10 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'blueshirts/darcula'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
 
 " NERDTree
 nmap <C-n> :NERDTreeToggle<CR>
@@ -115,25 +114,38 @@ syntax enable
 set background=dark "dark|light
 "colorscheme solarized
 
+" Color scheme
+colorscheme darcula
+
 " Mappings
 """"""""""
 
+" Leader key
+let mapleader = ","
+
+" Paste mode mapping
+set pastetoggle=<F2>
+
 " Moving up and down work as you would expect
-"nnoremap <silent> j gj
-"nnoremap <silent> k gk
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 
 " Open VIMRC with shortcut
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " Switch between buffers
-nnoremap <silent> <C-Left> :bp<CR>
-nnoremap <silent> <C-Right> :bn<CR>
+"nnoremap <silent> <C-Left> :bp<CR>
+"nnoremap <silent> <C-Right> :bn<CR>
+
+"" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
 " Switch between splits
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Hide higlighted matches after search
-:nnoremap <silent> <CR> :nohlsearch<CR><CR>
+:nnoremap <silent> <CR> :nohlsearch<CR>

@@ -14,7 +14,6 @@ set number                     " Show line numbers
 set linebreak                  " Break lines at word (requires Wrap lines)
 set showbreak=+++              " Wrap-broken line prefix
 set textwidth=100              " Line wrap (number of cols)
-
 set visualbell                 " Use visual bell (no beeping)
 set hlsearch                   " Highlight all search results
 set smartcase                  " Enable smart-case search
@@ -30,6 +29,9 @@ set magic                      " Set magic on, for regex
 set mat=2                      " How many tenths of a second to blink
 "set cursorline                 " Draws an horizontal line at cursor position
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
 " Tab control
 set noexpandtab " tabs ftw
@@ -72,18 +74,19 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'godlygeek/tabular'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'Raimondi/delimitMate'
-Bundle 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'godlygeek/tabular'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'dracula/vim'
-Plugin 'tpope/vim-surround'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'blueshirts/darcula'
 
@@ -106,12 +109,12 @@ let g:javascript_plugin_jsdoc = 1
 
 " Themes
 """"""""
+syntax enable
 
 " Solarized config
-syntax enable
 "let g:solarized_termtrans=1
 "let g:solarized_termcolors=256 "256 | 16
-set background=dark "dark|light
+"set background=dark "dark|light
 "colorscheme solarized
 
 " Color scheme
@@ -121,7 +124,7 @@ colorscheme darcula
 """"""""""
 
 " Leader key
-let mapleader = ","
+let mapleader=","
 
 " Paste mode mapping
 set pastetoggle=<F2>
@@ -137,9 +140,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 "nnoremap <silent> <C-Left> :bp<CR>
 "nnoremap <silent> <C-Right> :bn<CR>
 
-"" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
 
 " Switch between splits
 nnoremap <C-J> <C-W><C-J>

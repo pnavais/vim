@@ -133,8 +133,14 @@ set pastetoggle=<F2>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
-" Open VIMRC with shortcut
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" Open .vimrc in a new tab
+nnoremap <leader>ev :vsplit $MYVIMRC<CR> 
+
+" Reload .vimrc
+nnoremap <leader>sv :source $MYVIMRC<CR> 
+
+" Toggle cursorline
+nnoremap <Leader>c :set cursorline!<CR>  
 
 " Switch between buffers
 "nnoremap <silent> <C-Left> :bp<CR>

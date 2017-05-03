@@ -22,11 +22,11 @@ set ignorecase                 " Always case-insensitive
 set incsearch                  " Searches for strings incrementally
 set autoindent                 " Auto-indent new lines
 set smartindent                " Enable smart-indent
-"set ruler                      " Show row and column ruler information
 set undolevels=1000            " Number of undo levels
 set backspace=indent,eol,start " Backspace behaviour
 set magic                      " Set magic on, for regex
 set mat=2                      " How many tenths of a second to blink
+"set ruler                      " Show row and column ruler information
 "set cursorline                 " Draws an horizontal line at cursor position
 
 " Open new split panes to right and bottom, which feels more natural
@@ -142,16 +142,15 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " Toggle cursorline
 nnoremap <Leader>c :set cursorline!<CR>  
 
-" Switch between buffers
-"nnoremap <silent> <C-Left> :bp<CR>
-"nnoremap <silent> <C-Right> :bn<CR>
-
-
 " Switch between splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Switch between buffers
+"nnoremap <silent> <C-Left> :bp<CR>
+"nnoremap <silent> <C-Right> :bn<CR>
 
 " Hide higlighted matches after search
 :nnoremap <silent> <CR> :nohlsearch<CR>

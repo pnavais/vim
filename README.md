@@ -24,8 +24,8 @@ vim-plug plugin is required since this config file relies heavily on it to handl
 ### Quick features
 - Airline statusbar (Tabline disabled by default)
 - NERDTree access using the \<Ctrl-R\> shortcut
-- Navigate through tabs using \<Ctrl-left\> and \<Ctrl-right\>
-- Navigate through splits using \<Alt-arrow keys\>
+- Navigate through tabs using \<Ctrl-hjkl\>
+- Navigate through splits using \<Alt-arrow keys\> (Not working on mac :()
 - Launch CtrlP \<Ctrl-P\> to quickly find files
 - Darcula theme enabled by default
 - Solarized theme (use `solarized_termcolors=16` for better results under terminal. Dark mode may require solarized terminal colors)

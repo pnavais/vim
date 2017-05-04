@@ -34,5 +34,4 @@ vim-plug plugin is required since this config file relies heavily on it to handl
 - Surround + Repeat (i.e ysiw\<char\> + dot command)
 - Tabular plugin. Perform any selection (_VISUAL recommended_) and run : `Tabularize /<pattern>` to perform data tabulation using the given pattern.
 
-_NOTE: Airline and powerline fonts are enabled by default but powerline fonts shall be installed in the system separately.
-<br>**NERD Fonts** highly recommended --> (see https://github.com/ryanoasis/nerd-fonts)_
+_**NOTE:** Airline and powerline fonts are enabled by default but powerline fonts shall be installed in the system separately.NERD Fonts highly recommended --> (see https://github.com/ryanoasis/nerd-fonts)_

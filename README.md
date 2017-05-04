@@ -30,7 +30,9 @@ vim-plug plugin is required since this config file relies heavily on it to handl
 - Darcula theme enabled by default
 - Solarized theme (use `solarized_termcolors=16` for better results under terminal. Dark mode may require solarized terminal colors)
 - Edit .vimrc file with \<leader\>ev
-- Added Tabular plugin. Perform any selection (_VISUAL recommended_) and run : `Tabularize /<pattern>` to perform data tabulation using the given pattern.
+- Javascript Support
+- Surround + Repeat (i.e ysiw\<char\> + dot command)
+- Tabular plugin. Perform any selection (_VISUAL recommended_) and run : `Tabularize /<pattern>` to perform data tabulation using the given pattern.
 
 _NOTE: Airline and powerline fonts are enabled by default but powerline fonts shall be installed in the system separately.
-NERD Fonts recommended (see https://github.com/ryanoasis/nerd-fonts)_
+<br>NERD Fonts recommended (see https://github.com/ryanoasis/nerd-fonts)_

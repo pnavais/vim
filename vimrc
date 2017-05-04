@@ -1,15 +1,10 @@
-" ...............................................................
-"   ______               __           __ __   __            
-"  |   __ \.---.-.--.--.|  |--.---.-.|  |  | |__|.-----.    
-"  |    __/|  _  |  |  ||  _  |  _  ||  |  |     |__ --|    
-"  |___|   |___._|___  ||_____|___._||__|__|     |_____|    
-"               |_____|                                     
-"  ___ ___ _______ _______    ______               ___ __        
-" |   |   |_     _|   |   |  |      |.-----.-----.'  _|__|.-----.
-" |   |   |_|   |_|       |  |  ---| |  _  |     |   _|  ||  _  |
-"  \_____/|_______|__|_|__|  |______||_____|__|__|__| |__||___  |
-"                                                         |_____|
-" ...............................................................
+" ...........................................................................
+"   ______               __           __ __          ___ ___ _______ _______   
+"  |   __ \.---.-.--.--.|  |--.---.-.|  |  |  ____  |   |   |_     _|   |   | 
+"  |    __/|  _  |  |  ||  _  |  _  ||  |  | |____| |   |   |_|   |_|       | 
+"  |___|   |___._|___  ||_____|___._||__|__|         \_____/|_______|__|_|__|                              
+"                |_____|                     
+" ...........................................................................
                                                 
 " Payball's VIM configuration
 """""""""""""""""""""""""""""
@@ -67,44 +62,39 @@ set foldlevel=1
 set backspace=indent,eol,start
 
 " Switch syntax highlighting on
-syntax on
+syntax enable
 
 " Plugins
 """""""""
 
-" Vundle config
-set nocompatible " be IMproved
-filetype off     " required
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Vim-plugPlugins
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'godlygeek/tabular'
+Plug 'vim-scripts/matchit.zip'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'ryanoasis/vim-devicons'
+Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'altercation/vim-colors-solarized'
+Plug 'nanotech/jellybeans.vim'
+Plug 'dracula/vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'blueshirts/darcula'
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Initialize plugin system
+call plug#end()
 
-" Vundle Plugins
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'godlygeek/tabular'
-Plugin 'vim-scripts/matchit.zip'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'dracula/vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'blueshirts/darcula'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Plugins Configuration
+"""""""""""""""""""""""
 
 " NERDTree
 nmap <C-n> :NERDTreeToggle<CR>
@@ -122,16 +112,15 @@ let g:javascript_plugin_jsdoc = 1
 
 " Themes
 """"""""
-syntax enable
+
+" Color scheme
+set background=dark "dark|light
+colorscheme darcula
 
 " Solarized config
 "let g:solarized_termtrans=1
 "let g:solarized_termcolors=256 "256 | 16
-"set background=dark "dark|light
 "colorscheme solarized
-
-" Color scheme
-colorscheme darcula
 
 " Mappings
 """"""""""
@@ -162,8 +151,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Switch between buffers
-"nnoremap <silent> <C-Left> :bp<CR>
-"nnoremap <silent> <C-Right> :bn<CR>
+"nnoremap <silent> <Alt-h> :bp<CR>
+"nnoremap <silent> <Alt-l> :bn<CR>
 
 " Hide higlighted matches after search
-:nnoremap <silent> <CR> :nohlsearch<CR>
+nnoremap <silent> <CR> :nohlsearch<CR>
+

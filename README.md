@@ -4,20 +4,21 @@ My Personal VIM Configuration.
 ### Installation
 _NOTE: Make sure to backup your existing .vimrc file or .vim directory_
 
-VIM Vundle plugin is required since this config file relies heavily on it to handle several plugins. 
+vim-plug plugin is required since this config file relies heavily on it to handle several plugins. 
 
-1. Setup **Vundle**:
+1. Setup **vim-plug**:
 
-  `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+  `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
 2. Setup **.vimrc**:
 
   ```
   git clone https://github.com/pnavais/vim.git /some/dir && cp /some/dir/vimrc ~/.vimrc 
   ```
-3. Install the rest of the plugins through **Vundle**
+3. Install the rest of the plugins through **vim-plug**
 
-  Open **VIM** and run ``:BundleInstall``
+  Open **VIM** and run ``:PluginInstall``
   
   
 ### Quick features
@@ -26,8 +27,10 @@ VIM Vundle plugin is required since this config file relies heavily on it to han
 - Navigate through tabs using \<Ctrl-left\> and \<Ctrl-right\>
 - Navigate through splits using \<Alt-arrow keys\>
 - Launch CtrlP \<Ctrl-P\> to quickly find files
-- Solarized theme disabled by default (use `solarized_termcolors=16` for better results under terminal)
+- Darcula theme enabled by default
+- Solarized theme (use `solarized_termcolors=16` for better results under terminal. Dark mode may require solarized terminal colors)
 - Edit .vimrc file with \<leader\>ev
 - Added Tabular plugin. Perform any selection (_VISUAL recommended_) and run : `Tabularize /<pattern>` to perform data tabulation using the given pattern.
 
-_NOTE: Airline and powerline fonts are enabled by default but powerline fonts shall be installed in the system separately._
+_NOTE: Airline and powerline fonts are enabled by default but powerline fonts shall be installed in the system separately.
+NERD Fonts recommended (see https://github.com/ryanoasis/nerd-fonts)_

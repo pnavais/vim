@@ -35,4 +35,4 @@ vim-plug plugin is required since this config file relies heavily on it to handl
 - Tabular plugin. Perform any selection (_VISUAL recommended_) and run : `Tabularize /<pattern>` to perform data tabulation using the given pattern.
 
 _NOTE: Airline and powerline fonts are enabled by default but powerline fonts shall be installed in the system separately.
-<br>NERD Fonts highly recommended :v: (see https://github.com/ryanoasis/nerd-fonts)_
+<br>**NERD Fonts** highly recommended --> (see https://github.com/ryanoasis/nerd-fonts)_

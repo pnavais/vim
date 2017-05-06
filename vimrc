@@ -44,27 +44,27 @@ set splitbelow
 set splitright
 
 " Tab control
-set noexpandtab " tabs ftw
-set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
-set tabstop=4 " the visible width of tabs
+set noexpandtab   " tabs ftw
+set smarttab      " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+set tabstop=4     " the visible width of tabs
 set softtabstop=4 " edit as if the tabs are 4 characters wide
-set shiftwidth=4 " number of spaces to use for indent and unindent
-set shiftround " round indent to a multiple of 'shiftwidth'
+set shiftwidth=4  " number of spaces to use for indent and unindent
+set shiftround    " round indent to a multiple of 'shiftwidth'
 
-" faster redrawing
+                  " faster redrawing
 set ttyfast
 
 " code folding settings
 set foldmethod=syntax " fold based on indent
-set foldnestmax=10 " deepest fold is 10 levels
-set nofoldenable " don't fold by default
+set foldnestmax=10    " deepest fold is 10 levels
+set nofoldenable      " don't fold by default
 set foldlevel=1
 
 " make backspace behave in a sane manner
 set backspace=indent,eol,start
 
 " Display extra whitespace
-"set list listchars=tab:»·,trail:·,nbsp:·º
+"set list listchars=tab:»·,trail:·,nbsp:·
 
 " Make it obvious where 80 characters is
 "set textwidth=80

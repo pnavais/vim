@@ -32,6 +32,7 @@ vim-plug plugin is required since this config file relies heavily on it to handl
 - Edit .vimrc file with \<leader\>ev
 - Javascript Support
 - Surround + Repeat (i.e ysiw\<char\> + dot command)
+- Comment lines with <leader>cc or toggle comments with <leader>c<space>
 - Tabular plugin. Perform any selection (_VISUAL recommended_) and run : `Tabularize /<pattern>` to perform data tabulation using the given pattern.
 
 _**NOTE:** Airline and powerline fonts are enabled by default but powerline fonts shall be installed in the system separately.NERD Fonts highly recommended --> (see https://github.com/ryanoasis/nerd-fonts)_

@@ -124,6 +124,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
 Plug 'godlygeek/tabular'
 Plug 'vim-scripts/matchit.zip'
 Plug 'Raimondi/delimitMate'

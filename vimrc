@@ -102,6 +102,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+map <leader>wc :wincmd q<cr>
+
 " Switch between buffers
 nnoremap <silent> <leader>n :bp<CR>
 nnoremap <silent> <leader>m :bn<CR>
@@ -147,6 +149,8 @@ call plug#end()
 nmap <C-n> :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
 
 " Ctrl-P Fuzzy finder
 "let g:ctrlp_map = '<leader>t'
@@ -182,6 +186,6 @@ set background=dark "dark|light
 colorscheme darcula
 
 " Solarized config
-"let g:solarized_termtrans=1
+"l:qqqet g:solarized_termtrans=1
 "let g:solarized_termcolors=256 "256 | 16
 "colorscheme solarized

@@ -1,0 +1,56 @@
+#  _____            _           _ _ _       _____            __ _ _
+# |  __ \          | |         | | ( )     |  __ \          / _(_) |
+# | |__) |_ _ _   _| |__   __ _| | |/ ___  | |__) | __ ___ | |_ _| | ___
+# |  ___/ _` | | | | '_ \ / _` | | | / __| |  ___/ '__/ _ \|  _| | |/ _ \
+# | |  | (_| | |_| | |_) | (_| | | | \__ \ | |   | | | (_) | | | | |  __/
+# |_|   \__,_|\__, |_.__/ \__,_|_|_| |___/ |_|   |_|  \___/|_| |_|_|\___|
+#              __/ |
+#             |___/
+#
+# Welcome to my custom zsh profile
+# ---------------------------------
+
+# Language configuration
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Load Oh-my-zsh config
+source ~/.omzshrc
+
+# Add Homebrew GNU binaries to the path
+BREW_LOCAL_PATH="/usr/local/opt"
+export PATH="/usr/local/bin:$BREW_LOCAL_PATH/coreutils/libexec/gnubin:$BREW_LOCAL_PATH/findutils/libexec/gnubin:$BREW_LOCAL_PATH/gnu-tar/libexec/gnubin:$BREW_LOCAL_PATH/gnu-sed/libexec/gnubin:$BREW_LOCAL_PATH/curl/bin:$PATH"
+export MANPATH="/usr/local/share/man:$BREW_LOCAL_PATH/coreutils/libexec/gnuman:$BREW_LOCAL_PATH/findutils/libexec/gnuman:$BREW_LOCAL_PATH/gnu-tar/libexec/gnuman:$BREW_LOCAL_PATH/gnu-sed/libexec/gnuman:$MANPATH"
+
+# Configure list colors
+if [ "$TERM" != "dumb" ]; then
+  export LS_OPTIONS='--color=auto' 
+  eval `dircolors ~/.dir_colors_db/dircolors.ansi-dark` 
+fi
+
+# NVM Configuration
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# Aliases
+alias ls='ls $LS_OPTIONS'
+
+# Always enable colored `grep` output`
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+alias ccat="pygmentize -O style=monokai -f console256 -g"
+
+# 10ms for key sequences
+KEYTIMEOUT=1
+
+# Uncomment to Initialize prompt with pure without oh-my-zsh
+#autoload -U promptinit; promptinit
+#prompt pure
+
+# Load FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/usr/local/sdkman"
+[[ -s "/usr/local/sdkman/bin/sdkman-init.sh" ]] && source "/usr/local/sdkman/bin/sdkman-init.sh"

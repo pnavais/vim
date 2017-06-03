@@ -1,0 +1,2 @@
+package 'pure', name: ['pure.zsh'], url: ['https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh']
+package 'async', name: ['async.zsh'], url: ['https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh']

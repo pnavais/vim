@@ -1,0 +1,5 @@
+[alias]
+	st = status
+[user]
+	name = Pablo Navais
+	email = pnavais@gmail.com

@@ -1,6 +1,8 @@
 # Dotfiles installation 
 My Personal set of dotfiles with installer.
 
+![Installation Image](https://raw.githubusercontent.com/pnavais/dotfiles/master/install.gif)
+
 ### Installation
 _NOTE: This is still WIP_
 

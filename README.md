@@ -1,27 +1,33 @@
-# VIM Configuration
-My Personal VIM Configuration.
+# Dotfiles installation 
+My Personal set of dotfiles with installer.
 
 ### Installation
-_NOTE: Make sure to backup your existing .vimrc file or .vim directory_
+_NOTE: This is still WIP_
 
-vim-plug plugin is required since this config file relies heavily on it to handle several plugins. 
+
+Pending Stuff : 
 
 1. Setup **vim-plug**:
 
   `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
-2. Setup **.vimrc**:
+2. Install **vim-plug** plugins headless:
 
   ```
-  git clone https://github.com/pnavais/vim.git /some/dir && cp /some/dir/vimrc ~/.vimrc 
+  vim +PlugInstall
   ```
-3. Install the rest of the plugins through **vim-plug**
+3. Install **sdkman** to a custom location
 
-  Open **VIM** and run ``:PluginInstall``
-  
+4. Install Maven, Ant, Groovy, JDK through **sdkman** 
+
+5. Install Node through npm (Homebrew on Mac OS X)
   
 ### Quick features
+
+_TBD_
+
+VIM:
 - Airline statusbar (Tabline disabled by default)
 - NERDTree access using the \<Ctrl-R\> shortcut
 - Navigate through tabs using \<Ctrl-hjkl\>

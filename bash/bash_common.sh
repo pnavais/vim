@@ -45,6 +45,7 @@ function showBanner() {
 	printf "|\n";
 	printf "| ${YELLOW}Pablo Navais (2017)  ${BOLD}${WHITE}<pnavais@gmail.com>${GREEN}\n"
 	printf "\`----\n${NORMAL}";
+	sleep 1;
 }
 
 ###################################
@@ -54,7 +55,6 @@ function printNotes() {
 	printf "\n";
 	local var=$( IFS=$'\n'; echo "${INSTALL_NOTES[*]}" );
 	debug "$(printf "$var" | boxes -d stone)";
-
 	printf "\n\n";
 }
 
@@ -252,7 +252,7 @@ function createLinks() {
 		local target="$HOME/.${file_name/\.symlink/}";
 		if [[ -f $link ]]; then color="yellow"; else color="blue"; fi
 		printf $(pad "Creating symlink \"$(ansi --$color $target)\"");
-		ln -sf $link $target;
+		ln -sfn $link $target;
 		showResult;
 	done
 	IFS=$OLD_IFS;

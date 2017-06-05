@@ -29,14 +29,14 @@ showBanner;
 showSection "Performing BASH customization";
 loadBashLibs;
 
-# Create symlinks for all .symlink files/directories in $HOME
-showSubSection "Creating symlinks";
-createLinks "$(find $SCRIPT_DIR/ -name "*.symlink")";
-
 # Install Homebrew packages (OS X)
 if isOSX; then
 	$OSX_MAIN/install_osx.sh;
 fi
+
+# Create symlinks for all .symlink files/directories in $HOME
+showSubSection "Creating symlinks";
+createLinks "$(find $SCRIPT_DIR/ -name "*.symlink")";
 
 addInstallNote "Notes: ";
 
@@ -49,4 +49,4 @@ done
 addInstallNote "\nInstallation Finished.";
 printNotes;
 
-printf $(toilet -f pagga "That's all Folks !")"\n\n" | lolcat; 
+showExitMsg;

@@ -45,7 +45,18 @@ function showBanner() {
 	printf "|\n";
 	printf "| ${YELLOW}Pablo Navais (2017)  ${BOLD}${WHITE}<pnavais@gmail.com>${GREEN}\n"
 	printf "\`----\n${NORMAL}";
-	sleep 1;
+}
+
+###################################
+# Shows the exit message
+###################################
+function showExitMsg() {
+	local msg="That's all Folks !";
+	if isAvailable "toilet" && isAvailable "lolcat"; then
+		printf $(toilet -f pagga "$msg")"\n\n" | lolcat;
+	else
+		printf "${GREEN}$msg${NORMAL}\n\n";
+	fi
 }
 
 ###################################
@@ -54,7 +65,11 @@ function showBanner() {
 function printNotes() {
 	printf "\n";
 	local var=$( IFS=$'\n'; echo "${INSTALL_NOTES[*]}" );
-	debug "$(printf "$var" | boxes -d stone)";
+	if isAvailable "boxes"; then
+		debug "$(printf "$var" | boxes -d stone)";
+	else
+		debug "$(printf "$var")";
+	fi
 	printf "\n\n";
 }
 
@@ -203,7 +218,7 @@ function padding() {
 function pad() {
 	padding "$1" 80 '.';
 }
-	
+
 ##############################################
 # Removes ANSI sequences from a given String
 # Params:
@@ -288,3 +303,33 @@ function arrayContains() {
 function isOSX() {
 	[[ $OSTYPE =~ ^darwin ]] && return 0 || return 1;
 }
+
+#######################################
+# Checks if an app is available
+# Param:
+#    - appName : Name of the app
+#######################################
+function isAvailable() {
+	$(hash $1 &>/dev/null);
+	[[ $? -eq 0 ]] && return 0 || return 1;
+}
+
+#######################################
+# Creates a backup of the files and
+# directories to be replaced
+#######################################
+#function backupDotfiles() {
+	#local files=(${@});
+	#local OLD_IFS=IFS;
+	#IFS=$'\n';
+
+	#for link in "${links[@]}"; do
+		#local file_name=$(basename $link);
+		#local target="$HOME/.${file_name/\.symlink/}";
+		#if [[ -f $link ]]; then color="yellow"; else color="blue"; fi
+		#printf $(pad "Creating symlink \"$(ansi --$color $target)\"");
+		#ln -sfn $link $target;
+		#showResult;
+	#done
+	#IFS=$OLD_IFS;
+#}

@@ -13,9 +13,9 @@ set -g history-limit 20000
 set -g renumber-windows on
 
 # unbind default prefix and set it to Ctrl+a
-unbind C-b
-set -g prefix C-a
-bind C-a send-prefix
+#unbind C-b
+#set -g prefix C-a
+#bind C-a send-prefix
 
 # Rather than constraining window size to the maximum size of any client
 # connected to the *session*, constrain window size to the maximum size of any

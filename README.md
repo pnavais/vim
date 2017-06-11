@@ -1,7 +1,7 @@
 # Dotfiles installation 
 My Personal set of dotfiles with installer.
 
-![Installation Image](https://raw.githubusercontent.com/pnavais/dotfiles/master/install.gif)
+[![asciicast](https://asciinema.org/a/div7031ylnzqxuuvphafh8x1b.png)](https://asciinema.org/a/div7031ylnzqxuuvphafh8x1b)
 
 ### Installation
 _NOTE: This is still WIP_

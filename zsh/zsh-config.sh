@@ -13,6 +13,7 @@
 ZSH_MAIN=$(cd "$(dirname ${BASH_SOURCE[0]})"; pwd);
 ZSH_LIB="$ZSH_MAIN/lib";
 ZSH_DEPS="$ZSH_MAIN/zsh.pack";
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom";
 BASH_MAIN="$ZSH_MAIN/../bash";
 BASH_LIB="$BASH_MAIN/lib";
 FPATH_TARGET="/usr/local/share/zsh/site-functions/";
@@ -36,10 +37,10 @@ source $BASH_MAIN/bash_deps.sh
 # Dependencies Management
 loadBashLibs;
 
-# Download Pure
 showSection "Performing ZSH customization";
 loadZshLibs;
 
+# Installing Oh My Zsh
 showSubSection "Configuring Oh My Zsh";
 if [[ ! -d "$ZSH" ]]; then
 	printf "$(pad "Installing $(ansi --green \"Oh-my-zsh\")")";
@@ -51,13 +52,19 @@ if [[ ! -d "$ZSH" ]]; then
 	fi
 fi
 
-printf "$(pad "Adding $(ansi --green \"Pure\") theme")";
-
 # Add pure theme to oh-my-zsh
-ln -sf "$ZSH_LIB/pure.zsh" ~/.oh-my-zsh/custom/pure.zsh-theme && ln -sf "$ZSH_LIB/async.zsh" ~/.oh-my-zsh/custom/async.zsh
+printf "$(pad "Adding $(ansi --green \"Pure\") theme")";
+ln -sf "$ZSH_LIB/pure.zsh" $ZSH_CUSTOM/pure.zsh-theme && ln -sf "$ZSH_LIB/async.zsh" $ZSH_CUSTOM/async.zsh
 showResult
 
-# Uncomment to load pure without oh-my-zsh
-#ln -sf "$ZSH_MAIN/pure.zsh" "$FPATH_TARGET/prompt_pure_setup" && ln -sf "$ZSH_MAIN/async.zsh" "$FPATH_TARGET/async";
+# Install zsh-syntax-highlighting
+printf "$(pad "Adding $(ansi --green \"ZSH Syntax Highlighting\")")";
+ln -sf "$ZSH_LIB/zsh-syntax-highlighting" $ZSH_CUSTOM/plugins/
+showResult
+
+# Install zsh-autosuggestions
+printf "$(pad "Adding $(ansi --green \"ZSH Auto Suggestions\")")";
+ln -sf "$ZSH_LIB/zsh-autosuggestions" $ZSH_CUSTOM/plugins/
+showResult
 
 addInstallNote "+Remember to add \"$(which zsh)\" to /etc/shells\n+Use chsh -s $(which zsh) to change your login shell";

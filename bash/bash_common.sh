@@ -13,6 +13,7 @@
 
 RES_OK="\u2714";
 RES_FAIL="\u2716";
+RES_WARN="\u2716";
 
 RED="$(tput setaf 1)"
 GREEN="$(tput setaf 2)"
@@ -43,7 +44,7 @@ function showBanner() {
 	printf "|  / /_/ / /_/ / /_/ __/ / /  __(__  )\n";
 	printf "| /_____/\____/\__/_/ /_/_/\___/____/\n";
 	printf "|\n";
-	printf "| ${YELLOW}Pablo Navais (2017)  ${BOLD}${WHITE}<pnavais@gmail.com>${GREEN}\n"
+	printf "| ${YELLOW}Pablo Navais (2017)  ${BOLD}${WHITE}<pnavais@gmail.com>${NORMAL}${GREEN}\n"
 	printf "\`----\n${NORMAL}";
 }
 

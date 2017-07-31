@@ -26,7 +26,7 @@ source $BASH_MAIN/bash_common.sh
 # keep them in the given directory
 ###################################
 function loadBashLibs() {
-	downloadLibs "$BASH_LIB" "$BASH_DEPS"; 
+	downloadLibs "$BASH_LIB" "$BASH_DEPS";
 	sourceLibs "$BASH_LIB";
 }
 
@@ -44,7 +44,7 @@ function downloadLibs() {
 
 	# Create bash lib dir
 	createDir $lib_dir;
-	if [ ! -d "$lib_dir" ]; then
+	if [[ ! -d "$lib_dir" ]]; then
 		mkdir -p "$lib_dir";
 	fi
 
@@ -53,18 +53,26 @@ function downloadLibs() {
 	# Download dependencies
 	while read line; do
 		read -ra lib_data <<< "$line"
-		regex="package '(.+)', name: \['(.+)'\], url: \['(.+)'\]";
+		regex="package '(.+)', name: \['([^]]+)'\], url: \['([^]]+)'\](, git: \['([^]]+)'\]){0,1}";
 		if [[ $line =~ $regex ]]; then
 			name=${BASH_REMATCH[1]};
 			lib_name=${BASH_REMATCH[2]};
 			url=${BASH_REMATCH[3]};
+			use_git=0;
+			if [[ "${BASH_REMATCH[4]}" =~ "git: ['true']" ]]; then
+				use_git=1;
+			fi
 
 			# Download only if lib does not exist
 			if [[ ! -e "${lib_dir}/${lib_name}" ]]; then
 				if [[ $show_sect == 0 ]]; then showSubSection "Downloading dependencies"; show_sect=1; fi
 				msg=$(pad "Downloading \"${name}\"");
 				printf "$msg";
-				curl -o ${lib_dir}/${lib_name} -sfL $url 2>/dev/null
+				if [[ $use_git -eq 0 ]]; then
+					curl -o ${lib_dir}/${lib_name} -sfL $url 2>/dev/null
+				else
+					git clone $url ${lib_dir}/${lib_name} 2>/dev/null
+				fi
 				showResultOrExit;
 			fi
 		fi

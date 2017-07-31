@@ -44,9 +44,16 @@ alias ccat="pygmentize -O style=monokai -f console256 -g"
 # 10ms for key sequences
 KEYTIMEOUT=1
 
+# Complete aliases
+setopt COMPLETE_ALIASES
+
 # Uncomment to Initialize prompt with pure without oh-my-zsh
 #autoload -U promptinit; promptinit
 #prompt pure
+
+# Preferred editor for local and remote sessions
+export EDITOR=vim
+export VISUAL=vim
 
 # Load FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

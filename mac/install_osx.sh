@@ -4,7 +4,7 @@
 # install_osx.sh
 # --------------
 #
-# Performs Mac OS X specific installation stuff (Brew, System Tweaks, Fonts, etc...) 
+# Performs Mac OS X specific installation stuff (Brew, System Tweaks, Fonts, etc...)
 #
 ####################################################################################
 
@@ -27,7 +27,11 @@ loadBashLibs;
 
 # Install Homebrew packages
 showSection "Mac OS X installation";
-installBrewPackages;
+if [[ ! $SKIP_BREW -eq 1 ]]; then
+	installBrewPackages;
+else
+	printf "\n$(pad "$(ansi --yellow "Skipping Brew")")$(ansi --yellow "$RES_WARN")";
+fi
 
 # -> Rest of Mac OS X Custom Stuff
 
@@ -38,5 +42,5 @@ showResult;
 
 # Install SF Mono Fonts
 printf "$(pad "Adding $(ansi --green "\"SF Mono\"") fonts")";
-cp -v /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-* ~/Library/Fonts &>/dev/null 
+cp -v /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-* ~/Library/Fonts &>/dev/null
 showResult

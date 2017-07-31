@@ -25,12 +25,15 @@ export MANPATH="/usr/local/share/man:$BREW_LOCAL_PATH/coreutils/libexec/gnuman:$
 # Configure list colors
 if [ "$TERM" != "dumb" ]; then
   export LS_OPTIONS='--color=auto' 
-  eval `dircolors ~/.dir_colors_db/dircolors.ansi-dark` 
+  eval `dircolors ~/.dir_colors_db/dircolors.ansi-universal` 
 fi
 
 # NVM Configuration
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+if [ -e "$NVM_DIR" ]; then
+   . "$NVM_DIR/nvm.sh"
+   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 # Aliases
 alias ls='ls $LS_OPTIONS'

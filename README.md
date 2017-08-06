@@ -9,21 +9,11 @@ _NOTE: This is still WIP_
 
 Pending Stuff : 
 
-1. Setup **vim-plug**:
+1. Install **sdkman** to a custom location
 
-  `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+2. Install Maven, Ant, Groovy, JDK (Oracle as local) through **sdkman** 
 
-2. Install **vim-plug** plugins headless:
-
-  ```
-  vim +PlugInstall
-  ```
-3. Install **sdkman** to a custom location
-
-4. Install Maven, Ant, Groovy, JDK through **sdkman** 
-
-5. Install Node through npm (Homebrew on Mac OS X)
+3. Install Node through npm (Homebrew on Mac OS X)
   
 ### Quick features
 

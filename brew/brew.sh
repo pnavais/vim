@@ -99,7 +99,7 @@ function installBrewPackages() {
 			local name=${BASH_REMATCH[2]};
 			local args=${BASH_REMATCH[4]};
 
-			# Processk Brew package and install if not present
+			# Process Brew package and install if not present
 			if [[ $type == "brew" ]]; then
 				printf "$(pad "Installing \"$(ansi --blue "$name")\"")";
 				if ! checkBrewPackage "$name"; then

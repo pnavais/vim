@@ -82,10 +82,13 @@ createLinks "$(find $SCRIPT_DIR/ -name "*.symlink")";
 addInstallNote "Notes: ";
 
 # Perform specific tools post-install config
-for config in $(find $SCRIPT_DIR/ -name *-config.sh); do
+OLD_IFS=$IFS;
+IFS=$'\n';
+for config in $(find $SCRIPT_DIR/ -name "*-config.sh"); do
 	source $config;
 done
 
+IFS=$OLD_IFS;
 # Print available Notes
 addInstallNote "\nInstallation Finished.";
 printNotes;

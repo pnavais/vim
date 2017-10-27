@@ -11,9 +11,9 @@
 # Globals
 #########
 
-RES_OK="\u2714";
-RES_FAIL="\u2716";
-RES_WARN="\u2716";
+RES_OK="\xE2\x9C\x94"   #"\u2714";
+RES_FAIL="\xE2\x9C\x96" #"\u2716";
+RES_WARN="\xE2\x9A\xA0" #"\u2716";
 
 RED="$(tput setaf 1)"
 GREEN="$(tput setaf 2)"

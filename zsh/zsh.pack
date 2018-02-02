@@ -1,4 +1,1 @@
-package 'pure', name: ['pure.zsh'], url: ['https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh']
-package 'async', name: ['async.zsh'], url: ['https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh']
-package 'zsh-autosuggestions', name: ['zsh-autosuggestions'], url: ['https://github.com/zsh-users/zsh-autosuggestions'], git: ['true']
-package 'zsh-syntax-highligting', name: ['zsh-syntax-highlighting'], url: ['https://github.com/zsh-users/zsh-syntax-highlighting'], git: ['true']
+package 'antigen', name: ['antigen.zsh'], url: ['https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh']

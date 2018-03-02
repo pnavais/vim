@@ -86,7 +86,7 @@ set backspace=indent,eol,start
 " Switch syntax highlighting on
 syntax enable
 
-set rtp+=/usr/local/opt/fzf
+set rtp+=/.fzf
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
@@ -154,7 +154,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'blueshirts/darcula'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug '~/.fzf' | Plug 'junegunn/fzf.vim'
 
 ",Initialize plugin system
 call plug#end()

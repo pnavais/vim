@@ -1,30 +1,40 @@
 # Avoid escape delay in vim
 set -sg escape-time 0
 
-# tmux in 256 colors
+# Tile all windows
+unbind =
+bind = select-layout tiled
+
+# Tmux in 256 colors
 set -g default-terminal "screen-256color"
 
 # Set history
 set -g history-limit 20000
 
-# automatically renumber tmux windows
+# Automatically renumber tmux windows
 set -g renumber-windows on
 
-# unbind default prefix and set it to Ctrl+a
-unbind C-b
-set -g prefix C-a
-bind C-a send-prefix
+# For nested tmux sessions
+bind-key a send-prefix
+
+# Activity Monitoring
+setw -g monitor-activity on
+set -g visual-activity off
 
 # Rather than constraining window size to the maximum size of any client
 # connected to the *session*, constrain window size to the maximum size of any
 # client connected to *that window*. Much more reasonable.
- setw -g aggressive-resize on
+setw -g aggressive-resize on
 
-# make window/pane index start with 1
+# Make window/pane index start with 1
 set -g base-index 1
 setw -g pane-base-index 1
 set-window-option -g mouse on
 
+# Enable mouse support for switching panes/windows
+setw -g mouse on
+
+# Set terminal title
 set-option -g set-titles on
 set-option -g set-titles-string "#T - #W"
 
@@ -35,14 +45,87 @@ set -g status-keys vi
 # Navigate using Vim shortcuts
 setw -g mode-keys vi
 
-# Easily toggle synchronization (mnemonic: e is for echo)
-# sends input to all panes in a given window.
- bind e setw synchronize-panes on
- bind E setw synchronize-panes off
+######################
+##### Key Bindings ####
+#######################
 
- # Patch for OS X pbpaste and pbcopy under tmux.
-set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
+# unbind default prefix and set it to Ctrl+a
+#unbind C-b
+#set -g prefix C-a
+#bind C-a send-prefix
 
-# Force a reload of the config file
+# GNU-Screen compatible prefix
+set -g prefix2 C-a     
+bind C-a send-prefix -2
+
+# split window and fix path for tmux 1.9
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+bind _ split-window -h -c "#{pane_current_path}"
+
+# create session
+bind C-c new-session
+
+# find session
+bind C-f command-prompt -p find-session 'switch-client -t %%'
+
+# synchronize all panes in a window
+bind y setw synchronize-panes
+
+# Swap current pane with the next one
+bind > swap-pane -D
+
+# Swap current pane with the previous one 
+bind < swap-pane -U 
+
+# Toggle mouse
+bind m run 'awk "/###\s+Functions/{y=1;}y" ~/.tmux.conf | cut -c3- | sh -s _toggle_mouse'
+
+# Patch for OS X pbpaste and pbcopy under tmux.
+#set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
+
+# Expect UTF-8 (tmux < 2.2)
+set -q -g status-utf8 on            
+setw -q -g utf8 on
+
+# Boost history
+set -g history-limit 5000  
+
+# Edit configuration
+bind e new-window -n '~/.tmux.conf' "sh -c '\${EDITOR:-vim} ~/.tmux.conf && tmux source ~/.tmux.conf && tmux display \"~/.tmux.conf sourced\"'"
+
+# Reload configuration
 unbind r
-bind r source-file ~/.tmux.conf \; display "Reloaded!"
+bind r source-file ~/.tmux.conf \; display "Configuration reloaded!"
+
+##############################
+### Color & Style Settings ###
+##############################
+
+source ~/.tmux/themes/current.theme
+
+####################################################
+### Functions
+####################################################
+
+# set -e
+#
+# export LC_NUMERIC=C
+#
+# __newline='
+# '
+
+# _toggle_mouse() {
+#   old=$(tmux show -gv mouse)
+#   new=""
+#
+#   if [ "$old" = "on" ]; then
+#     new="off"
+#   else
+#     new="on"
+#   fi
+#
+#   tmux set -g mouse $new && tmux display "mouse: $new"
+# }
+#
+# "$@"

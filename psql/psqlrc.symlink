@@ -48,7 +48,7 @@
 \set QUIET OFF
 
 \echo '\nCurrent Host Server Date Time : '`date` '\n'
-\! echo "Type \033[0;36m:menu\033[0m to display commands\n"
+\echo 'Type \033[0;36m:menu\033[0m to display commands\n'
 
 \set menu '\\! echo "\033[0;33m\nAdministrative queries:\033[0m\n\n\t:version\t-- Show server version\n\t:settings\t-- Server Settings \n\t:ps\t\t-- Show running queries\n \t:locks\t\t-- Show locks and how long they have been locked\n\t:conninfo\t-- Server connections\n\t:activity\t-- Server activity\n\t:dbsize\t\t-- Database Size\n\t:tablesize\t-- Tables Size\n\t:uptime\t\t-- Server uptime\n\t:cachehit\t-- Cache hit ratio\n\t:indexusage\t-- Index usage\n\t:indexsize\t-- Index sizes\n\t:indextotal\t-- Total size of all indexes\n\t:outliers\t-- Slowest queries from pg_stat_statements\n\t:menu\t\t-- Help Menu\n\t\\\\h\t\t-- Help with SQL commands\n\t\\\\?\t\t-- Help with psql commands\n\n\033[0;33mDevelopment queries:\033[0m\n\n\t:sp\t\t-- Current Search Path\n\t:clear\t\t-- Clear screen\n\t:ll\t\t-- List\n\n\033[0;33mCheat sheet:\033[0m\n\n\tKill a process:\t\tSELECT pg_cancel_backend(pid)\n\tForce kill a process:\tSELECT pg_terminate_backend(pid)\n\"' 
 

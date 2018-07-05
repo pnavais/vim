@@ -5,7 +5,7 @@ My Personal set of dotfiles with installer.
 
 ### Installation
 
-Just run install.sh 
+Just run ```install.sh```
 
 _NOTE: This is still WIP_
 

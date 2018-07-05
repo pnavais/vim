@@ -4,22 +4,26 @@ My Personal set of dotfiles with installer.
 [![asciicast](https://asciinema.org/a/div7031ylnzqxuuvphafh8x1b.png)](https://asciinema.org/a/div7031ylnzqxuuvphafh8x1b)
 
 ### Installation
-_NOTE: This is still WIP_
 
+Just run install.sh 
+
+_NOTE: This is still WIP_
 
 Pending Stuff : 
 
-1. Install **sdkman** to a custom location
+1. Install Maven, Ant, Groovy, JDK through **sdkman** 
 
-2. Install Maven, Ant, Groovy, JDK (Oracle as local) through **sdkman** 
-
-3. Install Node through npm (Homebrew on Mac OS X)
+2. Install Node through npm (Homebrew on Mac OS X)
   
 ### Quick features
 
 _TBD_
 
-VIM:
+OSX :
+- Homebrew installation/update with basic packages
+- Terminfo with italics support for VIM/NVIM & tmux
+
+VIM & NEOVIM :
 - Airline statusbar (Tabline disabled by default)
 - NERDTree access using the <kbd>\<Ctrl-R\></kbd> shortcut
 - Navigate through tabs using <kbd>\<Ctrl-hjkl\></kbd>

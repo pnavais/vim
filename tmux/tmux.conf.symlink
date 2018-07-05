@@ -5,8 +5,9 @@ set -sg escape-time 0
 unbind =
 bind = select-layout tiled
 
-# Tmux in 256 colors
-set -g default-terminal "screen-256color"
+# Tmux in 256 colors with italics
+set -g default-terminal 'tmux-256color'
+set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
 
 # Set history
 set -g history-limit 20000

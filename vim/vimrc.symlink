@@ -19,6 +19,7 @@ set nobackup nowritebackup     " Disables backup files
 set encoding=utf-8             " Read encoding
 set fileencoding=utf-8         " Saving encoding
 set termencoding=utf-8         " Terminal encoding
+set termguicolors              " Use 256 colors
 set number                     " Show line numbers
 "set numberwidth=5              " Width of the line number column
 set linebreak                  " Break lines at word (requires Wrap lines)
@@ -160,6 +161,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'blueshirts/darcula'
+Plug 'morhetz/gruvbox'
 Plug '~/.fzf' | Plug 'junegunn/fzf.vim'
 
 ",Initialize plugin system
@@ -205,9 +207,15 @@ let g:javascript_plugin_jsdoc = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Color scheme
-set background=dark "dark|light
-colorscheme darcula
+"set background=dark "dark|light
+"colorscheme darcula
 "colorscheme base16-ateliercave
+
+" Gruvbox theme options
+"let g:gruvbox_termcolors = 'medium' " Possible values soft, medium and hard
+
+let g:gruvbox_italic = '1'
+colorscheme gruvbox
 
 " Solarized config
 "l:qqqet g:solarized_termtrans=1

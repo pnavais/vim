@@ -33,7 +33,7 @@ VIM & NEOVIM :
 - Edit .vimrc file with <kbd>\<leader\>ev</kbd>
 - Javascript Support
 - Surround + Repeat (i.e <kbd>ysiw\<char\> + dot command</kbd>)
-- Comment lines with <kbd>\<leader\>cc</kdb> or toggle comments with <kbd>\<leader\>c space</kbd>
+- Comment lines with <kbd>\<leader\>cc</kbd> or toggle comments with <kbd>\<leader\>c\<space\></kbd>
 - Tabular plugin. Perform any selection (_VISUAL recommended_) and run : <kbd>`Tabularize /<pattern>`</kbd> to perform data tabulation using the given pattern.
 
 _**NOTE:** Airline and powerline fonts are enabled by default but powerline fonts shall be installed in the system separately.NERD Fonts highly recommended --> (see https://github.com/ryanoasis/nerd-fonts)_

@@ -32,6 +32,9 @@
 "\eOH": beginning-of-line
 "\eOF": end-of-line
 
+"\e[1;9D": backward-word
+"\e[1;9C": forward-word
+
 # Allow 8-bit input/output
 set meta-flag on
 set convert-meta off

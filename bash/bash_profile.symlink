@@ -10,23 +10,45 @@
 # Welcome to my custom bash profile
 # ---------------------------------
 
-# Sets a terminal supporting italics (needs terminfo)
-[[ $OSTYPE =~ ^darwin ]] && export TERM=xterm-256color-italic
+# Bash customizations
+# -------------------
 
 # Prevents pipeline errors from being masked
 set -o pipefail
+
+# Turn on recursive globbing (enables ** to recurse all directories)
+shopt -s globstar 3> /dev/null
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
+
+# Suppress Ctrl-C echo
+stty -echoctl
 
 # Language configuration
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# Preferred editor for local and remote sessions
+export EDITOR=vim
+export VISUAL=vim
+
+# Dotfiles location
+export DOTFILES=$HOME/dotfiles
+
 # Custom fancy prompt
 export PS1=$'\[\e[36m\]\[\e[32m\][\u@\h:\[\e[33m\]\w\[\e[36m\]]$\[\e[39m\] '
 
-# Add Homebrew GNU binaries to the path
-BREW_LOCAL_PATH="/usr/local/opt"
-export PATH="/usr/local/bin:$BREW_LOCAL_PATH/coreutils/libexec/gnubin:$BREW_LOCAL_PATH/findutils/libexec/gnubin:$BREW_LOCAL_PATH/gnu-tar/libexec/gnubin:$BREW_LOCAL_PATH/gnu-sed/libexec/gnubin:$BREW_LOCAL_PATH/curl/bin:$PATH"
-export MANPATH="/usr/local/share/man:$BREW_LOCAL_PATH/coreutils/libexec/gnuman:$BREW_LOCAL_PATH/findutils/libexec/gnuman:$BREW_LOCAL_PATH/gnu-tar/libexec/gnuman:$BREW_LOCAL_PATH/gnu-sed/libexec/gnuman:$MANPATH"
+# OS X stuff...
+if [[ $OSTYPE =~ ^darwin ]]; then 
+	# Sets a terminal supporting italics (needs terminfo)
+	export TERM=xterm-256color-italic
+	
+	# Add Homebrew GNU binaries to the path
+	BREW_LOCAL_PATH="/usr/local/opt"
+	export PATH="/usr/local/bin:$BREW_LOCAL_PATH/coreutils/libexec/gnubin:$BREW_LOCAL_PATH/findutils/libexec/gnubin:$BREW_LOCAL_PATH/gnu-tar/libexec/gnubin:$BREW_LOCAL_PATH/gnu-sed/libexec/gnubin:$BREW_LOCAL_PATH/curl/bin:$PATH"
+	export MANPATH="/usr/local/share/man:$BREW_LOCAL_PATH/coreutils/libexec/gnuman:$BREW_LOCAL_PATH/findutils/libexec/gnuman:$BREW_LOCAL_PATH/gnu-tar/libexec/gnuman:$BREW_LOCAL_PATH/gnu-sed/libexec/gnuman:$MANPATH"
+fi
 
 # Configure list colors
 if [ "$TERM" != "dumb" ]; then
@@ -34,40 +56,33 @@ if [ "$TERM" != "dumb" ]; then
   eval `dircolors ~/.dir_colors_db/dircolors.ansi-dark` 
 fi
 
+# Aliases
+# -------
+
+alias ls='ls $LS_OPTIONS'
+alias ssh='TERM=xterm256-color ssh'
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+alias ccat="pygmentize -O style=monokai -f console256 -g"
+
+# Applications configuration
+# --------------------------
+
 # NVM Configuration
 export NVM_DIR="$HOME/.nvm"
 if [ -e "$NVM_DIR" ]; then
    . "$NVM_DIR/nvm.sh"
 fi
 
-# Aliases
-alias ls='ls $LS_OPTIONS'
-alias ssh='TERM=xterm256-color ssh'
+# Go Configuration
 
-# Always enable colored `grep` output`
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
-alias ccat="pygmentize -O style=monokai -f console256 -g"
+# SDKMAN Configuration
+export SDKMAN_DIR="/usr/local/sdkman"
+[[ -s "/usr/local/sdkman/bin/sdkman-init.sh" ]] && source "/usr/local/sdkman/bin/sdkman-init.sh"
 
-# Suppress Ctrl-C echo
-stty -echoctl
-
-# Turn on recursive globbing (enables ** to recurse all directories)
-shopt -s globstar 2> /dev/null
-
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
-
-# Dotfiles location
-export DOTFILES=$HOME/dotfiles
-
-# Fuzzy finder configuration
+# Fuzzy finder configuration (FZF)
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Load local config
 [ -f ~/.bash_profile.local ] && source ~/.bash_profile.local
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/usr/local/sdkman"
-[[ -s "/usr/local/sdkman/bin/sdkman-init.sh" ]] && source "/usr/local/sdkman/bin/sdkman-init.sh"

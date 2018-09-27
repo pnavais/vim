@@ -76,6 +76,8 @@ if [ -e "$NVM_DIR" ]; then
 fi
 
 # Go Configuration
+[[ -w "/usr/local/go-pkg" ]] export GOPATH=/usr/local/go-pkg
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # SDKMAN Configuration
 export SDKMAN_DIR="/usr/local/sdkman"

@@ -13,6 +13,9 @@
 # Zsh customizations
 # -------------------
 
+# Workaround for wsl
+unsetopt BG_NICE 
+
 # Load Antigen config
 source ~/.antigenrc
 
@@ -62,12 +65,11 @@ fi
 # -------
 
 alias ls='ls $LS_OPTIONS'
-alias ssh='TERM=xterm256-color ssh'
+alias ssh='TERM=xterm-256color ssh'
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 alias ccat="pygmentize -O style=monokai -f console256 -g"
-alias ssh='TERM=xterm256-color ssh'
 
 # Applications configuration
 # --------------------------

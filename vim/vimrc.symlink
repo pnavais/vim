@@ -20,6 +20,8 @@ set encoding=utf-8             " Read encoding
 set fileencoding=utf-8         " Saving encoding
 set termencoding=utf-8         " Terminal encoding
 set termguicolors              " Use 256 colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " Fix for tmux with termguicolors set (256 colors support)
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " Fix for tmux with termguicolors set (256 colors support)
 set number                     " Show line numbers
 "set numberwidth=5              " Width of the line number column
 set linebreak                  " Break lines at word (requires Wrap lines)
@@ -217,8 +219,10 @@ let g:javascript_plugin_jsdoc = 1
 
 " Gruvbox theme options
 "let g:gruvbox_termcolors = 'medium' " Possible values soft, medium and hard
-
+set background=dark    " Setting dark mode
+"set background=light   " Setting light mode
 let g:gruvbox_italic = '1'
+"let g:gruvbox_termcolors=16
 colorscheme gruvbox
 
 " Solarized config

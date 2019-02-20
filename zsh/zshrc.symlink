@@ -30,8 +30,13 @@ KEYTIMEOUT=1
 
 # Use alt <-, -> to navigate words
 bindkey -e
-bindkey '^[[1;9C' forward-word
-bindkey '^[[1;9D' backward-word
+if [[ $OSTYPE =~ ^darwin ]]; then
+	bindkey '^[[1;9C' forward-word
+	bindkey '^[[1;9D' backward-word
+else
+	bindkey "^[[1;3C" forward-word
+	bindkey "^[[1;3D" backward-word
+fi
 
 # Language configuration
 export LC_ALL=en_US.UTF-8

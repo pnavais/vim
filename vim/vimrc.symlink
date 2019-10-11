@@ -169,6 +169,7 @@ Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'blueshirts/darcula'
 Plug 'morhetz/gruvbox'
+Plug 'cespare/vim-toml'
 Plug '~/.fzf' | Plug 'junegunn/fzf.vim'
 
 ",Initialize plugin system
@@ -176,6 +177,8 @@ call plug#end()
 
 " Plugins Configuration
 """""""""""""""""""""""
+" Toml
+autocmd BufNewFile,BufRead *.conf,*.cfg setf toml
 
 " NERDTree
 nmap <C-n> :NERDTreeToggle<CR>

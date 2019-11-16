@@ -20,6 +20,8 @@ set encoding=utf-8             " Read encoding
 set fileencoding=utf-8         " Saving encoding
 set termencoding=utf-8         " Terminal encoding
 set termguicolors              " Use 256 colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " Fix for tmux with termguicolors set (256 colors support)
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " Fix for tmux with termguicolors set (256 colors support)
 set number                     " Show line numbers
 set linebreak                  " Break lines at word (requires Wrap lines)
 set showbreak=+++              " Wrap-broken line prefix
@@ -105,6 +107,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Close buffer
 map <leader>wc :wincmd q<cr>
 
 " Switch between buffers
@@ -145,6 +148,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'sheerun/vim-polyglot'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'altercation/vim-colors-solarized'
@@ -153,6 +157,7 @@ Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'blueshirts/darcula'
 Plug 'morhetz/gruvbox'
+Plug 'cespare/vim-toml'
 Plug '~/.fzf' | Plug 'junegunn/fzf.vim'
 
 ",Initialize plugin system
@@ -165,6 +170,10 @@ call plug#end()
 " FZF
 """""""""""""""""""""""
 set rtp+=/.fzf
+
+" Toml
+"""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.conf,*.cfg setf toml
 
 " NERDTree
 """""""""""""""""""""""
@@ -209,7 +218,10 @@ let g:javascript_plugin_jsdoc = 1
 " Gruvbox
 """""""""""""""""""""""
 "let g:gruvbox_termcolors = 'medium' " Possible values soft, medium and hard
+set background=dark    " Setting dark mode
+"set background=light   " Setting light mode
 let g:gruvbox_italic = '1'
+"let g:gruvbox_termcolors=16
 colorscheme gruvbox
 
 " Darcula

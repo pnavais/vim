@@ -193,6 +193,12 @@ let g:ctrlp_custom_ignore = {
 " search the nearest ancestor that contains .git, .hg, .svn
 let g:ctrlp_working_path_mode = 2
 
+" VIM Airline
+set t_Co=256
+set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=0
+
 " Javascript
 let g:javascript_plugin_jsdoc = 1
 
@@ -210,14 +216,6 @@ set background=dark "dark|light
 let g:gruvbox_italic = '1'
 "let g:gruvbox_termcolors = 'medium' " Possible values soft, medium and hard
 colorscheme gruvbox
-
-" VIM Airline
-set t_Co=256
-set laststatus=2
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=0
-let g:airline_theme='badwolf'
-
 
 " Solarized config
 "set termguicolors

@@ -7,6 +7,7 @@ brew 'bash'
 brew 'binutils'
 brew 'coreutils'
 brew 'curl'
+brew 'trash'
 brew 'htop', args: ['HEAD', 'with-ncurses']
 brew 'diff-so-fancy'
 #brew 'dnsmasq'
@@ -30,7 +31,6 @@ brew 'grep', args: ['with-default-names']
 brew 'less', args: ['with-pcre']
 brew 'macvim', args: ['HEAD', 'with-cscope', 'with-lua', 'with-override-system-vim', 'with-luajit', 'with-python']
 brew 'nvm'
-brew 'reattach-to-user-namespace'
 brew 'the_silver_searcher'
 brew 'tmux', args: ['HEAD']
 brew 'wget'

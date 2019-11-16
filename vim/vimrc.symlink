@@ -7,7 +7,7 @@
 " ...........................................................................
 
 " Payball's VIM configuration
-"""""""""""""""""""""""""""""
+" ---------------------------
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => UI Settings
@@ -21,7 +21,6 @@ set fileencoding=utf-8         " Saving encoding
 set termencoding=utf-8         " Terminal encoding
 set termguicolors              " Use 256 colors
 set number                     " Show line numbers
-"set numberwidth=5              " Width of the line number column
 set linebreak                  " Break lines at word (requires Wrap lines)
 set showbreak=+++              " Wrap-broken line prefix
 set textwidth=100              " Line wrap (number of cols)
@@ -37,57 +36,45 @@ set undolevels=1000            " Number of undo levels
 set backspace=indent,eol,start " Backspace behaviour
 set magic                      " Set magic on, for regex
 set mat=2                      " How many tenths of a second to blink
-"set ruler                      " Show row and column ruler information
 set cursorline                 " Draws an horizontal line at cursor position
 set showmatch                  " Show matching brackets
-set hid                        " Change buffer without saving"
+set hid                        " Change buffer without saving
+set timeoutlen=1000            " Mapping delays
+set ttimeoutlen=0              " Key code delays
+set backspace=indent,eol,start " Make backspace behave in a sane manner
+"set ruler                     " Show row and column ruler information
+"set numberwidth=5             " Width of the line number column
+"set textwidth=80              " Make it obvious where 80 characters is
+"set colorcolumn=+1
+"set fillchars+=vert:\         " Hide Separators in vertical splits
+"set list listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬  " Display extra whitespace
 
 " Turn wild menu
 set lsp=0
 set wildmenu
 set wildmode=list:longest
 
-" Mapping delays
-set timeoutlen=1000
-" Key code delays
-set ttimeoutlen=0
-
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
 
 " Tab control
-set noexpandtab   " tabs ftw
-set smarttab      " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
-set tabstop=4     " the visible width of tabs
-set softtabstop=4 " edit as if the tabs are 4 characters wide
-set shiftwidth=4  " number of spaces to use for indent and unindent
-set shiftround    " round indent to a multiple of 'shiftwidth'
-set ttyfast       " faster redrawing
+set noexpandtab                " Tabs ftw
+set smarttab                   " Tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+set tabstop=4                  " The visible width of tabs
+set softtabstop=4              " Edit as if the tabs are 4 characters wide
+set shiftwidth=4               " Number of spaces to use for indent and unindent
+set shiftround                 " Round indent to a multiple of 'shiftwidth'
+set ttyfast                    " Faster redrawing
 
-" code folding settings
-set foldmethod=syntax " fold based on indent
-set foldnestmax=10    " deepest fold is 10 levels
-set nofoldenable      " don't fold by default
+" Code folding settings
+set foldmethod=syntax          " fold based on indent
+set foldnestmax=10             " deepest fold is 10 levels
+set nofoldenable               " don't fold by default
 set foldlevel=1
-
-" make backspace behave in a sane manner
-set backspace=indent,eol,start
-
-" Display extra whitespace
-"set list listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬
-
-" Hide Separators in vertical splits
-"set fillchars+=vert:\
-
-" Make it obvious where 80 characters is
-"set textwidth=80
-"set colorcolumn=+1
 
 " Switch syntax highlighting on
 syntax enable
-
-set rtp+=/.fzf
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
@@ -138,7 +125,7 @@ map <F7> mzgg=G`z
 :iabbrev </ </<C-X><C-O>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugins
+" => Plugins Definition
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Specify a directory for plugins
@@ -171,10 +158,16 @@ Plug '~/.fzf' | Plug 'junegunn/fzf.vim'
 ",Initialize plugin system
 call plug#end()
 
-" Plugins Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" FZF
 """""""""""""""""""""""
+set rtp+=/.fzf
 
 " NERDTree
+"""""""""""""""""""""""
 nmap <C-n> :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
@@ -182,6 +175,7 @@ let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
 let NERDTreeShowHidden=1
 
 " Ctrl-P Fuzzy finder
+"""""""""""""""""""""""
 "let g:ctrlp_map = '<leader>t'
 "nnoremap <silent> <leader>t :CtrlP<CR>
 nnoremap <silent> <leader>r :CtrlPBuffer<CR>
@@ -190,38 +184,46 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " CtrlP ignore patterns
 let g:ctrlp_custom_ignore = {
-            \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
-            \ 'file': '\.exe$\|\.so$'
-            \ }
+			\ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
+			\ 'file': '\.exe$\|\.so$'
+			\ }
 
-" search the nearest ancestor that contains .git, .hg, .svn
+" Search the nearest ancestor that contains .git, .hg, .svn
 let g:ctrlp_working_path_mode = 2
 
 " VIM Airline
+"""""""""""""""""""""""
 set t_Co=256
 set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=0
 
 " Javascript
+"""""""""""""""""""""""
 let g:javascript_plugin_jsdoc = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Color scheme
-"set background=dark "dark|light
-"colorscheme darcula
-"colorscheme base16-ateliercave
-
-" Gruvbox theme options
+" Gruvbox
+"""""""""""""""""""""""
 "let g:gruvbox_termcolors = 'medium' " Possible values soft, medium and hard
-
 let g:gruvbox_italic = '1'
 colorscheme gruvbox
 
-" Solarized config
-"l:qqqet g:solarized_termtrans=1
+" Darcula
+"""""""""""""""""""""""
+"colorscheme darcula
+"AirlineTheme dark
+
+" Solarized
+"""""""""""""""""""""""
+"let g:solarized_termtrans=1
 "let g:solarized_termcolors=256 "256 | 16
 "colorscheme solarized
+
+" Atelier
+"""""""""""""""""""""""
+"set background=dark "dark|light
+"colorscheme base16-ateliercave

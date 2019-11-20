@@ -40,15 +40,15 @@ HYPHEN_INSENSITIVE="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Bundles from oh-my-zsh
-zplug "plugins/git"
-zplug "plugins/command-not-found"
+zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/command-not-found",   from:oh-my-zsh
 if [[ "$OSTYPE" == "darwin"* ]]; then
-   zplug "plugins/osx"
+   zplug "plugins/osx",   from:oh-my-zsh
 fi
-zplug "plugins/colored-man-pages"
-zplug "plugins/colorize"
-zplug "plugins/extract"
-zplug "plugins/z"
+zplug "plugins/colored-man-pages",   from:oh-my-zsh
+zplug "plugins/colorize",   from:oh-my-zsh
+zplug "plugins/extract",   from:oh-my-zsh
+zplug "plugins/z",   from:oh-my-zsh
 
 # Bundles from zsh-users
 zplug "zsh-users/zsh-syntax-highlighting"

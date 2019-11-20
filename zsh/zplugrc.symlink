@@ -1,5 +1,5 @@
-# Load Antigen
-source $HOME/.antigen/antigen.zsh
+# Load Zplug
+source $HOME/.zplug/init.zsh
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -39,29 +39,33 @@ HYPHEN_INSENSITIVE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# Bundles from oh-my-zsh
+zplug "plugins/git"
+zplug "plugins/command-not-found"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+   zplug "plugins/osx"
+fi
+zplug "plugins/colored-man-pages"
+zplug "plugins/colorize"
+zplug "plugins/extract"
+zplug "plugins/z"
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundles <<EOBUNDLES
-   git
-   command-not-found
-   osx
-   colored-man-pages
-   colorize
-   extract
-   z
+# Bundles from zsh-users
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
 
-   # Bundles from zsh-users
-   zsh-users/zsh-syntax-highlighting
-   zsh-users/zsh-completions
-   zsh-users/zsh-autosuggestions
+# Load the theme.
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
-   # Load the theme.
-   mafredri/zsh-async
-   sindresorhus/pure
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
-EOBUNDLES
-
-# Tell Antigen that you're done.
-antigen apply
+# Then, source plugins and add commands to $PATH
+zplug load

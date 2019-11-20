@@ -160,8 +160,8 @@ eval "`dircolors -b $DIR_COLORS`"
 # Workaround for wsl
 unsetopt BG_NICE 
 
-# Load Antigen config
-source ~/.antigenrc
+# Load zplug config
+source ~/.zplugrc
 
 # Complete aliases
 setopt COMPLETE_ALIASES

@@ -222,8 +222,15 @@ export SDKMAN_DIR="/usr/local/sdkman"
 
 # Fuzzy finder configuration (FZF)
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+HAS_RG=$(command -v rg) 
+if [ -n "$HAS_RG" ]; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+else
+  HAS_AG=$(command -v ag)
+  [ -n "$HAS_AG" ] && export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g ""'
+fi
+[ -n "$FZF_DEFAULT_COMMAND" ] && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Load local config
 [ -f ~/.bash_profile.local ] && source ~/.bash_profile.local

@@ -101,6 +101,10 @@ nmap <leader>x :q!<cr>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
+" Map Home/End keys
+nnoremap <C-a> <Home>
+nnoremap <C-e> <End>
+
 " Open .vimrc in a new tab
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 

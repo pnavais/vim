@@ -1,6 +1,10 @@
 # Avoid escape delay in vim
 set -sg escape-time 0
 
+# Fix home/end keys
+bind -n End send-key C-e
+bind -n Home send-key C-a
+
 # Tile all windows
 unbind =
 bind = select-layout tiled

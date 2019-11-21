@@ -49,6 +49,7 @@ zplug "plugins/colored-man-pages",   from:oh-my-zsh
 zplug "plugins/colorize",   from:oh-my-zsh
 zplug "plugins/extract",   from:oh-my-zsh
 zplug "plugins/z",   from:oh-my-zsh
+zplug "plugins/sudo",   from:oh-my-zsh
 
 zplug "djui/alias-tips"
 

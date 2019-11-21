@@ -134,9 +134,6 @@ map > >gv
 " Switch between current and last buffer
 map <leader>. <c-^>
 
-" Enable . command in visual mode
-noremap . :normal .<cr>
-
 " Remove trailing whitespaces in file
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
@@ -177,6 +174,14 @@ Plug 'flazz/vim-colorschemes'
 Plug 'blueshirts/darcula'
 Plug 'morhetz/gruvbox'
 Plug 'cespare/vim-toml'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-ragtag'
+Plug 'benmills/vimux'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-sleuth'
 Plug '~/.fzf' | Plug 'junegunn/fzf.vim'
 
 ",Initialize plugin system
@@ -189,6 +194,7 @@ call plug#end()
 " FZF
 """""""""""""""""""""""
 set rtp+=/.fzf
+nmap <silent> <leader>t :FZF<cr>
 
 " Toml
 """""""""""""""""""""""

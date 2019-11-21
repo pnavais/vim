@@ -50,10 +50,13 @@ zplug "plugins/colorize",   from:oh-my-zsh
 zplug "plugins/extract",   from:oh-my-zsh
 zplug "plugins/z",   from:oh-my-zsh
 
+zplug "djui/alias-tips"
+
 # Bundles from zsh-users
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-history-substring-search", defer:3 # Should be loaded last.
 
 # Load the theme.
 zplug mafredri/zsh-async, defer:0 

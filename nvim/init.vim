@@ -88,6 +88,15 @@ let mapleader=","
 " Paste mode mapping
 set pastetoggle=<F2>
 
+" Quick save
+nmap <leader>, :w<cr>
+
+" Exit saving
+nmap <leader>q :wq<cr>
+
+" Exist without saving
+nmap <leader>x :q!<cr>
+
 " Moving up and down work as you would expect
 nnoremap <silent> j gj
 nnoremap <silent> k gk

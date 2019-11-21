@@ -9,6 +9,8 @@
 #
 # Welcome to my custom zsh profile
 # ---------------------------------
+# Load zplug config
+source ~/.zplugrc
 
 # Zsh customizations
 # -------------------
@@ -156,12 +158,8 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 [ -e "$DIR_COLORS" ] || DIR_COLORS=""
 eval "`dircolors -b $DIR_COLORS`"
 
-
 # Workaround for wsl
 unsetopt BG_NICE 
-
-# Load zplug config
-source ~/.zplugrc
 
 # Complete aliases
 setopt COMPLETE_ALIASES
@@ -172,10 +170,36 @@ setopt SH_NUllCMD
 # 10ms for key sequences
 KEYTIMEOUT=1
 
-# Use alt <-, -> to navigate words
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt EXTENDED_HISTORY
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+
+setopt COMPLETE_ALIASES
+
+# make terminal command navigation sane again
 bindkey -e
-bindkey '^[[1;9C' forward-word
-bindkey '^[[1;9D' backward-word
+# Use alt <-, -> to navigate words
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[[3~' delete-char
+bindkey '^?' backward-delete-char
+bindkey "^A" vi-beginning-of-line
+
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending
+
+# default to file completion
+zstyle ':completion:*' completer _expand _complete _files _correct _approximate
 
 # Language configuration
 export LC_ALL=en_US.UTF-8

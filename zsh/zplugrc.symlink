@@ -56,8 +56,8 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 
 # Load the theme.
-zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+zplug mafredri/zsh-async, defer:0 
+zplug sindresorhus/pure, use:pure.zsh, as:theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

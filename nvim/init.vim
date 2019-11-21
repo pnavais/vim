@@ -127,6 +127,16 @@ nnoremap <silent> <leader>m :bn<CR>
 " Hide higlighted matches after search
 nnoremap <silent> <CR> :nohlsearch<CR>
 
+" Keep visual selection when indenting/outdenting
+map < <gv
+map > >gv
+
+" Switch between current and last buffer
+map <leader>. <c-^>
+
+" Enable . command in visual mode
+noremap . :normal .<cr>
+
 " Remove trailing whitespaces in file
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 

@@ -26,7 +26,7 @@ showSection "Performing Terminal Customization";
 # Tunning Terminfo
 showSubSection "Updating Terminfo database";
 #if isOSX; then
-	printf "$(pad "Installing $(ansi --green \"Terminfo profiles\!\")")";
+	printf "$(pad "Installing $(ansi --green \"Terminfo\ profiles\")")";
 	tic -x $SCRIPT_DIR/xterm-256color-italic.terminfo &&
 	tic -x $SCRIPT_DIR/tmux-256color.terminfo
     showResultOrExit;

@@ -27,7 +27,7 @@ showSection "Performing Neovim Customization";
 # Tunning Terminfo
 showSubSection "Installing custom configuration";
 #if isOSX; then
-	printf "$(pad "Installing $(ansi --green \"Neovim profile\")")";
+	printf "$(pad "Installing $(ansi --green \"Neovim\ profile\")")";
 	mkdir -p $NEOVIM_CONFIG_PATH && ln -fs $SCRIPT_DIR/init.vim $NEOVIM_CONFIG_PATH/
     showResultOrExit;
 #fi

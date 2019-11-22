@@ -1,1 +1,1 @@
-package 'zplug', name: ['installer.zsh'], url: ['https://raw.githubusercontent.com/zplug/installer/master/installer.zsh']
+package 'zplug', name: ['zplug-installer.zsh'], url: ['https://raw.githubusercontent.com/zplug/installer/master/installer.zsh']

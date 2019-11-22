@@ -52,6 +52,7 @@ zplug "plugins/z",   from:oh-my-zsh
 zplug "plugins/sudo",   from:oh-my-zsh
 
 zplug "djui/alias-tips"
+zplug "supercrabtree/k"
 
 # Bundles from zsh-users
 zplug "zsh-users/zsh-syntax-highlighting"

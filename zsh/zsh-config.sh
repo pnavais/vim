@@ -16,6 +16,8 @@ ZSH_DEPS="$ZSH_MAIN/zsh.pack";
 BASH_MAIN="$ZSH_MAIN/../bash";
 BASH_LIB="$BASH_MAIN/lib";
 FPATH_TARGET="/usr/local/share/zsh/site-functions/";
+SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})"; pwd);
+ZPLUG_INSTALLER="zplug-installer.zsh"
 
 # Functions
 ###########
@@ -42,9 +44,16 @@ showSection "Performing ZSH customization";
 loadZshLibs;
 
 # Install zplug
+if [ -d "$HOME/.zplug" ]; then
+	printf "$(pad "Uninstalling previous $(ansi --green \"Zplug\")")";
+	rm -fr $HOME/.zplug
+	showResultOrExit
+fi
+
 printf "$(pad "Installing $(ansi --green \"Zplug\")")";
-#ln -sf "$ZSH_LIB/antigen.zsh" $ANTIGEN_CUSTOM/antigen.zsh
-showResult
+[ -e "$SCRIPT_DIR/lib/$ZPLUG_INSTALLER" ] && chmod +x $SCRIPT_DIR/lib/$ZPLUG_INSTALLER
+$SCRIPT_DIR/lib/$ZPLUG_INSTALLER &> /dev/null
+showResultOrExit
 
 if [ -n "$ZSH_CMD" ]; then
 	addInstallNote "+Remember to add \"$(which zsh)\" to /etc/shells\n+Use chsh -s $(which zsh) to change your login shell";

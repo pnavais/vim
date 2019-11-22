@@ -1,4 +1,4 @@
-" ...........................................................................
+"gruvbox ...........................................................................
 "   ______               __           __ __          ___ ___ _______ _______
 "  |   __ \.---.-.--.--.|  |--.---.-.|  |  |  ____  |   |   |_     _|   |   |
 "  |    __/|  _  |  |  ||  _  |  _  ||  |  | |____| |   |   |_|   |_|       |
@@ -152,7 +152,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Vim-plugPlugins
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'

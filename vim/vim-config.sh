@@ -31,6 +31,11 @@ if [[ ! -e "$HOME/.vim/autoload/plug.vim" ]]; then
 	showResultOrExit;
 fi
 
+if [ -d "$HOME/.vim/plugged" ]; then
+	printf "$(pad "Cleaning previous vim-plug plugins $(ansi --green \"vim-plug\")")";
+	rm -fr "$HOME/.vim/plugged"
+	showResultOrExit
+fi
 printf "$(pad "Installing $(ansi --green "\"VIM plugins\"")")";
 vim -u $SCRIPT_DIR/vimrc.install +PlugInstall +qa &> /dev/null
-showResult
+showResultOrExit

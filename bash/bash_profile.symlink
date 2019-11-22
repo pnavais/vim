@@ -152,8 +152,6 @@ mcd () {
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
-export PS1="\[\033[38;5;12m\][\[$(tput sgr0)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\]\[\033[38;5;12m\]@\[$(tput sgr0)\]\[\033[38;5;7m\]\h\[$(tput sgr0)\]\[\033[38;5;12m\]]\[$(tput sgr0)\]\[\033[38;5;15m\]: \[$(tput sgr0)\]\[\033[38;5;7m\]\w\[$(tput sgr0)\]\[\033[38;5;12m\]>\[$(tput sgr0)\]\[\033[38;5;10m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-
 [ -e "/etc/DIR_COLORS" ] && DIR_COLORS="/etc/DIR_COLORS"
 [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
 [ -e "$DIR_COLORS" ] || DIR_COLORS=""
@@ -184,7 +182,7 @@ export VISUAL=vim
 export DOTFILES=$HOME/dotfiles
 
 # Custom fancy prompt
-export PS1=$'\[\e[36m\]\[\e[32m\][\u@\h:\[\e[33m\]\w\[\e[36m\]]$\[\e[39m\] '
+export PS1=$'\[\e[36m\][\[\e[32m\]\u@\h:\[\e[33m\]\w\[\e[36m\]]$\[\e[39m\] '
 
 # Configure list colors
 if [ "$TERM" != "dumb" ]; then

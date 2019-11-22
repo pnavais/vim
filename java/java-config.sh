@@ -45,6 +45,11 @@ showSubSection "Installing JVM tools";
 if [[ ! -e "/usr/local/sdkman" ]]; then
 	printf "$(pad "Installing $(ansi --green \"SDKMAN\!\")")";
 	$SUDO bash -c "export SDKMAN_DIR=\"/usr/local/sdkman\" && curl -s \"https://get.sdkman.io\" | bash &>/dev/null";
-	$SUDO chown -R $USER:$GID /usr/local/sdkman
+	LAST_ERROR=$?
+	if [ "$LAST_ERROR" -eq 0 ]; then
+		$SUDO chown -R $USER:$GID /usr/local/sdkman
+	else
+		$(exit $LAST_ERROR) # Re-establish return code
+	fi
 	showResultOrExit;
 fi

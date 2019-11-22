@@ -156,6 +156,15 @@ function debug() {
 	printf "\e[0;33m$1\e[0m";
 }
 
+#######################################
+# Shows a warning message (Yellow color)
+# Params:
+# - (1) msg : String to show
+#######################################
+function warn() {
+	debug "$1"
+}
+
 ##############################################
 # Pads a message with the given character
 # up to a maximum size,

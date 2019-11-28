@@ -220,5 +220,9 @@ else
 fi
 [ -n "$FZF_DEFAULT_COMMAND" ] && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# fnm
+export PATH=/home/pnavais/.fnm:$PATH
+eval "`fnm env --multi`"
+
 # Load local config
 [ -f ~/.bash_profile.local ] && source ~/.bash_profile.local

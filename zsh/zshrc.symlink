@@ -18,6 +18,45 @@ source ~/.zplugrc
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to use case-sensitive completion.
+#CASE_SENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+
 # Make colorcoding available for everyone
 
 Black='\e[0;30m'        # Black
@@ -55,7 +94,8 @@ NC="\e[m"               # Color Reset
 # new alert text
 ALERT=${BWhite}${On_Red} # Bold White on red background
 
-# mostly used alias functions
+# Aliases
+# -------
 
 # LSD
 alias ll='lsd -lh --group-dirs=first'
@@ -77,19 +117,25 @@ alias cd..="cd .."
 #alias ls="ls -CF --color=auto"
 #alias ll="ls -lisa --color=auto"
 #alias lsl="ls -lhFA | less"
+#alias ls='ls $LS_OPTIONS'
 alias home="cd ~"
 alias df="df -ahiT --total"
 alias md="mkdir -pv"
 alias userlist="cut -d: -f1 /etc/passwd"
 alias fhere="find . -name "
 alias free="free -mt"
-alias ps="ps auxf"
+alias psf="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias wget="wget -c"
 alias histg="history | grep"
 alias myip="curl http://ipecho.net/plain; echo"
 alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+alias ccat="pygmentize -O style=monokai -f console256 -g"
+#alias ssh='TERM=xterm256-color ssh'
 
 # Creates an archive (*.tar.gz) from given directory.
 function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
@@ -233,17 +279,6 @@ if [ "$TERM" != "dumb" ]; then
   eval `dircolors ~/.dir_colors_db/dircolors.ansi-dark` 
 fi
 
-# Aliases
-# -------
-
-#alias ls='ls $LS_OPTIONS'
-#alias ssh='TERM=xterm-256color ssh'
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
-alias ccat="pygmentize -O style=monokai -f console256 -g"
-alias ssh='TERM=xterm256-color ssh'
-
 # Applications configuration
 # --------------------------
 
@@ -262,6 +297,10 @@ else
   [ -n "$HAS_AG" ] && export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g ""'
 fi
 [ -n "$FZF_DEFAULT_COMMAND" ] && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# fnm
+export PATH=/home/pnavais/.fnm:$PATH
+eval "`fnm env --multi`"
 
 # Load local config
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

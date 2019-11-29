@@ -1,7 +1,6 @@
 # Load Zplug
 source $HOME/.zplug/init.zsh
 
-
 # Bundles from oh-my-zsh
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/command-not-found",   from:oh-my-zsh
@@ -27,7 +26,6 @@ zplug "zsh-users/zsh-history-substring-search", defer:3 # Should be loaded last.
 # Load the theme.
 zplug mafredri/zsh-async, defer:0 
 #zplug sindresorhus/pure, use:pure.zsh, as:theme
-
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 # Install plugins if there are plugins that have not been installed

@@ -45,13 +45,6 @@ printf "$(pad "Adding $(ansi --green "\"SF Mono\"") fonts")";
 cp -v /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-* ~/Library/Fonts &>/dev/null
 showResult
 
-# Setting brew nvm in HOME
-printf "$(pad "Linking $(ansi --green "\"NVM\"")")";
-if [  -e "/usr/local/opt/nvm/nvm.sh" ] && [ ! -e "$HOME/.nvm/nvm.sh" ]; then
-	ln -s "/usr/local/opt/nvm/nvm.sh" ~/.nvm/nvm.sh
-fi
-showResult
-
 # Setting brew fzf in HOME
 printf "$(pad "Linking $(ansi --green "\"FZF\"")")";
 if [ ! -e "$HOME/.fzf" ]; then

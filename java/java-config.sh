@@ -24,6 +24,10 @@ SUDO="sudo"
 source $BASH_MAIN/bash_common.sh
 source $BASH_MAIN/bash_deps.sh
 
+if ! isARM64; then
+	exit 0;
+fi
+
 showSection "Performing Java Customization";
 
 if [ "$EUID" -ne 0 ]; then
@@ -42,6 +46,7 @@ fi
 
 # Installing JVM Tools
 showSubSection "Installing JVM tools";
+
 if [[ ! -e "/usr/local/sdkman" ]]; then
 	printf "$(pad "Installing $(ansi --green \"SDKMAN\!\")")";
 	$SUDO bash -c "export SDKMAN_DIR=\"/usr/local/sdkman\" && curl -s \"https://get.sdkman.io\" | bash &>/dev/null";

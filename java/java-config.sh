@@ -24,7 +24,7 @@ SUDO="sudo"
 source $BASH_MAIN/bash_common.sh
 source $BASH_MAIN/bash_deps.sh
 
-if ! isARM64; then
+if isARM64; then
 	exit 0;
 fi
 

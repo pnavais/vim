@@ -24,9 +24,7 @@ SUDO="sudo"
 source $BASH_MAIN/bash_common.sh
 source $BASH_MAIN/bash_deps.sh
 
-if isARM64; then
-	exit 0;
-fi
+if ! isARM64; then
 
 showSection "Performing Java Customization";
 
@@ -57,4 +55,6 @@ if [[ ! -e "/usr/local/sdkman" ]]; then
 		$(exit $LAST_ERROR) # Re-establish return code
 	fi
 	showResultOrExit;
+fi
+
 fi
